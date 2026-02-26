@@ -600,3 +600,186 @@ for (let i = 0; i <= newArr.length - 1; i++) {
 }
 console.log(longest) // output: Javascript
 ```
+
+## Rotate array by 1 position
+
+```js
+let arr = [1, 2, 3, 4, 5]
+
+// (Left Rotation) [ 2, 3, 4, 5, 1 ]
+
+let firstElem = arr[0]
+
+for (let i = 0; i <= arr.length - 1; i++) {
+    arr[i] = arr[i + 1]
+}
+arr[arr.length - 1] = firstElem
+
+console.log(arr)
+
+// (Right Rotation) [ 5, 1, 2, 3, 4 ]
+
+let lastElem = arr[arr.length - 1]
+
+for (let i = arr.length - 1; i >= 0; i--) {
+    arr[i] = arr[i - 1]
+}
+arr[0] = lastElem
+
+console.log(arr)
+
+
+// (Right Rotation by 2) [ 4, 5, 1, 2, 3 ]
+
+let lastElem = arr[arr.length - 1]
+let lastScndElem = arr[arr.length - 2]
+
+
+for (let i = arr.length - 1; i >= 2; i--) {
+    arr[i] = arr[i - 2]
+}
+arr[0] = lastScndElem
+arr[1] = lastElem
+console.log(arr)
+```
+
+## Find missing number in array
+
+```js
+let arr = [1, 2, 4, 5];
+
+// arr length //5
+let n = arr.length + 1
+
+//using formula we calculate expected Sum
+let expectedSum = n * (n + 1) / 2
+
+//using for loop we calculate actual Sum
+let actualSum = 0
+
+for (let i = 0; i < arr.length; i++) {
+    actualSum += arr[i]
+}
+
+let missing = expectedSum - actualSum
+console.log(missing)
+```
+## Check if array is sorted
+```js 
+let arr = [1, 2, 3, 4, 5]
+
+let isSorted = false
+
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[i + 1]) {
+        isSorted = false
+        break
+    } else {
+        isSorted = true
+    }
+}
+console.log(isSorted ? "Soretd" : "Not Sorted")
+```
+## Move all zeros to end
+```js
+let arr = [0, 1, 0, 3, 12];
+
+let j = 0;  // pointer for non-zero placement
+
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        j++;
+    }
+}
+
+console.log(arr);
+```
+## Find common elements in two arrays
+```js
+let arr = [1, 2, 3, 4, 5]
+let arr2 = [1, 3, 5, 6, 7]
+
+
+let set = new Set(arr)
+let res = []
+
+for (let i = 0; i < arr2.length; i++) {
+    if (set.has(arr2[i])) {
+        res.push(arr2[i])
+    }
+}
+console.log(res)
+```
+## Find intersection of arrays
+```js
+let arr = [1, 2, 3, 4, 5]
+let arr2 = [1, 3, 5, 6, 7]
+
+
+let set = new Set(arr)
+let res = []
+
+for (let i = 0; i < arr2.length; i++) {
+    if (set.has(arr2[i])) {
+        res.push(arr2[i])
+    }
+}
+console.log(res)
+```
+## Remove falsy values from array
+```js
+let arr = [0, 1, false, 2, "", 3, null, undefined, NaN]
+
+let res = []
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+        res.push(arr[i])
+    }
+}
+console.log(res)
+```
+## Flatten a nested array (basic)
+```js
+let arr = [1, [2, 3], 4, [5, 6]]
+
+let result = []
+
+for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+        for (let j = 0; j < arr[i].length; j++) {
+            result.push(arr[i][j])
+        }
+    } else {
+        result.push(arr[i])
+    }
+}
+console.log(result)
+```
+## Chunk array into smaller arrays
+```js
+let arr = [1, 2, 3, 4, 5, 6];
+let size = 2;
+
+let result = [];
+let temp = [];
+
+for (let i = 0; i < arr.length; i++) {
+
+    temp.push(arr[i]);
+
+    if (temp.length === size) {
+        result.push(temp);
+        temp = [];
+    }
+}
+
+// Last remaining elements
+if (temp.length > 0) {
+    result.push(temp);
+}
+
+console.log(result);
+```

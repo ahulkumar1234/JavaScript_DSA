@@ -45,7 +45,7 @@
 - Count digits in a number
 - Reverse a number without built-in
 - Find sum of digits of a number
-- Check if number is Armstrong
+- Check if number is Armstrong **
 - Remove spaces from a string
 - Find longest word in a sentence
 ---
